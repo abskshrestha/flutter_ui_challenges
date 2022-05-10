@@ -15,12 +15,30 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.blue[800],
+      bottomNavigationBar: BottomNavigationBar(
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: '',
+          ),
+        ],
+      ),
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(25.0),
-          child: Column(
-            children: [
-              //grretongs row
+        child: Column(
+          children: [
+           Padding(
+             padding: const EdgeInsets.symmetric(horizontal: 25.0),
+             child: Column(
+               children: [
+                  //grretongs row
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -42,15 +60,14 @@ class _HomePageState extends State<HomePage> {
                       Text(
                         "Hi, Absk!",
                         style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 24,
-                            fontWeight: FontWeight.bold),
+                          color: Colors.white,
+                          fontSize: 24,
+                        ),
                       ),
 
                       Text(
                         'May 4, 2022',
                         style: TextStyle(
-                          fontWeight: FontWeight.bold,
                           color: Colors.white38,
                         ),
                       ),
@@ -77,9 +94,6 @@ class _HomePageState extends State<HomePage> {
                       Icons.search,
                       color: Colors.white,
                     ),
-                    SizedBox(
-                      width: 5,
-                    ),
                     Text(
                       'Search',
                       style: TextStyle(color: Colors.white),
@@ -99,7 +113,6 @@ class _HomePageState extends State<HomePage> {
                     'How do you feel?',
                     style: TextStyle(
                       color: Colors.white,
-                      fontWeight: FontWeight.bold,
                       fontSize: 18,
                     ),
                   ),
@@ -116,31 +129,85 @@ class _HomePageState extends State<HomePage> {
 
 // 4 different faces
               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   //bad
                   SizedBox(
-                    width: 25,
+                    width: 15,
                   ),
-                  EmoticonFace(),
-                  SizedBox(
-                    width: 25,
+                  Column(
+                    children: [
+                      EmoticonFace(
+                        emoticonFace: '😞',
+                      ),
+                      SizedBox(height: 10),
+                      Text(
+                        'Bad',
+                        style: TextStyle(fontSize: 15, color: Colors.white),
+                      ),
+                    ],
                   ),
+
                   //fine
-                  EmoticonFace(),
-                  SizedBox(
-                    width: 25,
+
+                  Column(
+                    children: [
+                      EmoticonFace(
+                        emoticonFace: '😐',
+                      ),
+                      SizedBox(height: 10),
+                      Text(
+                        'Fine',
+                        style: TextStyle(fontSize: 15, color: Colors.white),
+                      ),
+                    ],
                   ),
+
                   //well
-                  EmoticonFace(),
-                  SizedBox(
-                    width: 25,
+
+                  Column(
+                    children: [
+                      EmoticonFace(
+                        emoticonFace: '🤗',
+                      ),
+                      SizedBox(height: 10),
+                      Text(
+                        'Well',
+                        style: TextStyle(fontSize: 15, color: Colors.white),
+                      ),
+                    ],
                   ),
+
                   //excellent
-                  EmoticonFace(),
+                  Column(
+                    children: [
+                      EmoticonFace(
+                        emoticonFace: '😍',
+                      ),
+                      SizedBox(height: 10),
+                      Text(
+                        'Exce',
+                        style: TextStyle(fontSize: 15, color: Colors.white),
+                      ),
+                    ],
+                  ),
+
+                  SizedBox(width: 20),
                 ],
-              )
-            ],
-          ),
+              ),
+               ],
+             ),
+           ),
+
+SizedBox(
+  height: 25,
+),
+            Expanded(
+              child: Container(
+                color: Colors.white,
+              ),
+            )
+          ],
         ),
       ),
     );
