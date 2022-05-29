@@ -211,7 +211,8 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
                 padding: EdgeInsets.all(25),
-                child: Column(
+                child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -232,11 +233,14 @@ class _HomePageState extends State<HomePage> {
                           borderRadius: BorderRadius.circular(12),
                           color: Colors.grey[100]),
                       child: Row(
+                     
+                      
                         children: [
                           Icon(Icons.favorite),
                           SizedBox(width: 12),
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
+                               
                             children: [
                               Text(
                                 'Speaking Skills',
@@ -252,6 +256,11 @@ class _HomePageState extends State<HomePage> {
                                     color: Colors.grey),
                               ),
                             ],
+                          ),
+                          
+                          Icon(
+                            Icons.more_horiz,
+                            color: Colors.black,
                           ),
                         ],
                       ),
