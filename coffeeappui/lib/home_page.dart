@@ -1,12 +1,30 @@
 import 'dart:ui';
 import 'util/coffee_tile.dart';
 import 'package:flutter/material.dart';
-
 import 'util/coffee_type.dart';
 
 class HomePage extends StatefulWidget {
   @override
   State<HomePage> createState() => _HomePageState();
+}
+
+//List of Coffee types
+
+final List coffeeType = [
+    //coffeetype, IsSelected
+    ['cappacino', true],
+
+    ['latte', false],
+
+    ['black', false],
+];
+
+//user tapped on coffee types
+
+void coffeeTypeSelected(int index){
+  setstate(){
+coffeeType[index][1] = true;
+  }
 }
 
 class _HomePageState extends State<HomePage> {
@@ -75,7 +93,21 @@ class _HomePageState extends State<HomePage> {
 
           //horizontal listviews of coffee types
 
-          CoffeeType(),
+          Container(
+              height: 50,
+              child: ListView.builder(
+                itemCount: coffeeType.length,
+                itemBuilder: (context, index){
+         
+                return CoffeeType(
+                  coffeeType: coffeeType[index][0], 
+                  isSelected: coffeeType[index][1], 
+                  onTap: (){
+                    coffeeTypeSelected(index);
+                  },);
+              },
+              ),
+              ),
 
           Expanded(
               child: ListView(scrollDirection: Axis.horizontal, children: [
