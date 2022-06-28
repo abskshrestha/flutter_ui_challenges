@@ -11,19 +11,24 @@ class HomePage extends StatefulWidget {
 //List of Coffee types
 
 final List coffeeType = [
-    //coffeetype, IsSelected
-    ['cappacino', true],
+  //coffeetype, IsSelected
+  ['cappacino', true],
 
-    ['latte', false],
+  ['latte', false],
 
-    ['black', false],
+  ['black', false],
 ];
 
 //user tapped on coffee types
 
-void coffeeTypeSelected(int index){
-  setstate(){
-coffeeType[index][1] = true;
+void coffeeTypeSelected(int index) {
+  setstate() {
+    //this for loop makes every selection false
+
+    for (int i = 0; i < coffeeType.length; i++) {
+      coffeeType[i][1] = false;
+    }
+    coffeeType[index][1] = true;
   }
 }
 
@@ -94,27 +99,41 @@ class _HomePageState extends State<HomePage> {
           //horizontal listviews of coffee types
 
           Container(
-              height: 50,
-              child: ListView.builder(
-                itemCount: coffeeType.length,
-                itemBuilder: (context, index){
-         
+            height: 50,
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemCount: coffeeType.length,
+              itemBuilder: (context, index) {
                 return CoffeeType(
-                  coffeeType: coffeeType[index][0], 
-                  isSelected: coffeeType[index][1], 
-                  onTap: (){
+                  coffeeType: coffeeType[index][0],
+                  isSelected: coffeeType[index][1],
+                  onTap: () {
                     coffeeTypeSelected(index);
-                  },);
+                  },
+                );
               },
-              ),
-              ),
+            ),
+          ),
 
           Expanded(
-              child: ListView(scrollDirection: Axis.horizontal, children: [
-            CoffeeTile(),
-            CoffeeTile(),
-            CoffeeTile(),
-          ]))
+            child: ListView(scrollDirection: Axis.horizontal, children: [
+              CoffeeTile(
+                coffeeImagePath: 'lib/images/cappucino.jpg',
+                coffeeName: 'cappucino',
+                coffeePrice: '4.20',
+              ),
+              CoffeeTile(
+                coffeeImagePath: 'lib/images/latte.jpg',
+                coffeeName: 'latte',
+                coffeePrice: '4.20',
+              ),
+              CoffeeTile(
+                coffeeImagePath: 'lib/images/cappucino.jpg',
+                coffeeName: 'cappucino',
+                coffeePrice: '4.20',
+              ),
+            ]),
+          ),
         ],
         //horizontal listview of coffe tiles
       ),
