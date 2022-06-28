@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
 
 class CoffeeTile extends StatelessWidget {
-  const CoffeeTile({Key? key}) : super(key: key);
+  final String coffeeImagePath;
+  final String coffeeName;
+  final String coffeePrice;
+
+  CoffeeTile(
+      {required this.coffeeImagePath,
+      required this.coffeeName,
+      required this.coffeePrice});
 
   @override
   Widget build(BuildContext context) {
@@ -22,39 +29,37 @@ class CoffeeTile extends StatelessWidget {
               // coffee image
               ClipRRect(
                   borderRadius: BorderRadius.circular(12.0),
-                  child: Image.asset('lib/images/latte.jpg')),
-              Text("Latte",
-                  style: TextStyle(
-                      fontSize: 20, fontWeight: FontWeight.bold)),
+                  child: Image.asset(coffeeImagePath)),
+              Text(coffeeName,
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
 
               Text(
                 "With almond milk",
                 style: TextStyle(color: Colors.grey),
               ),
 
-            Padding(
-            padding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 8.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-              Text('\$4.00'),
-              Container(
-                decoration: BoxDecoration(
-                  color: Colors.orange,
-                  borderRadius: BorderRadius.circular(6),
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(vertical: 12.0, horizontal: 8.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text('\$' + coffeePrice),
+                    Container(
+                        decoration: BoxDecoration(
+                          color: Colors.orange,
+                          borderRadius: BorderRadius.circular(6),
+                        ),
+                        child: Icon(Icons.add))
+                  ],
                 ),
-                child: Icon(Icons.add))
-            ],),
-          ),
+              ),
             ],
 
             // coffee name
           ),
         ),
         //Row
-      
-          
-        
       ),
     );
   }
