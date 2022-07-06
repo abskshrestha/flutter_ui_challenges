@@ -1,0 +1,59 @@
+Flutter crash report.
+Please report a bug at https://github.com/flutter/flutter/issues.
+
+## command
+
+flutter run --machine --start-paused -d chrome --devtools-server-address http://127.0.0.1:9100/ --target lib\main.dart
+
+## exception
+
+StateError: Bad state: No context with the running Dart application.
+
+```
+#0      RemoteDebuggerExecutionContext.id (package:dwds/src/debugging/execution_context.dart:55:7)
+<asynchronous suspension>
+#1      AppInspector._getExtensionRpcs (package:dwds/src/debugging/inspector.dart:527:20)
+<asynchronous suspension>
+#2      AppInspector._initialize (package:dwds/src/debugging/inspector.dart:93:34)
+<asynchronous suspension>
+#3      AppInspector.initialize (package:dwds/src/debugging/inspector.dart:156:5)
+<asynchronous suspension>
+#4      ChromeProxyService.createIsolate (package:dwds/src/services/chrome_proxy_service.dart:218:18)
+<asynchronous suspension>
+```
+
+## flutter doctor
+
+```
+[✓] Flutter (Channel unknown, 2.5.3, on Microsoft Windows [Version 10.0.19043.1766], locale en-US)
+    • Flutter version 2.5.3 at C:\flutter
+    • Upstream repository unknown
+    • Framework revision 18116933e7 (9 months ago), 2021-10-15 10:46:35 -0700
+    • Engine revision d3ea636dc5
+    • Dart version 2.14.4
+
+[✓] Android toolchain - develop for Android devices (Android SDK version 29.0.2)
+    • Android SDK at C:\Users\Abhi\Android
+    • Platform android-30-3, build-tools 29.0.2
+    • ANDROID_HOME = C:\Users\Abhi\Android
+    • Java binary at: C:\Program Files\Eclipse Adoptium\jdk-8.0.312.7-hotspot\bin\java
+    • Java version OpenJDK Runtime Environment (Temurin)(build 1.8.0_312-b07)
+    • All Android licenses accepted.
+
+[✓] Chrome - develop for the web
+    • Chrome at C:\Program Files\Google\Chrome\Application\chrome.exe
+
+[!] Android Studio (not installed)
+    • Android Studio not found; download from https://developer.android.com/studio/index.html
+      (or visit https://flutter.dev/docs/get-started/install/windows#android-setup for detailed instructions).
+
+[✓] VS Code, 64-bit edition (version 1.68.1)
+    • VS Code at C:\Program Files\Microsoft VS Code
+    • Flutter extension version 3.44.0
+
+[✓] Connected device (2 available)
+    • Chrome (web) • chrome • web-javascript • Google Chrome 103.0.5060.66
+    • Edge (web)   • edge   • web-javascript • Microsoft Edge 100.0.1185.39
+
+! Doctor found issues in 1 category.
+```
