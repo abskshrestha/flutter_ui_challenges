@@ -1,4 +1,7 @@
-# musicplayerui
+# Music Player UI
+
+![ink (7)](https://user-images.githubusercontent.com/81076450/178110195-d4b467ec-2035-4c75-9ded-4f6b1e6939f9.png)
+
 
 A new Flutter project.
 
