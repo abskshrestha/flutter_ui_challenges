@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:plantappui/home_page.dart';
+import 'package:plantappui/plant_details_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +19,9 @@ class MyApp extends StatelessWidget {
         brightness: Brightness.light,
       ),
       home: HomePage(),
+      routes: {
+        "/Plant-Details-Page": (ctx) => PlantDetailsPage()
+        },
     );
   }
 }
-
